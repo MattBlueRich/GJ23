@@ -30,6 +30,7 @@ public class HitboxInput : MonoBehaviour
         {
             Debug.Log("DESTROY");
             dot.GetComponent<Animator>().SetTrigger("Expand");
+            dot.GetComponent<CircleCollider2D>().enabled = false;
             StartCoroutine(HitAnimation(1f, dot));
         }
 
@@ -51,13 +52,21 @@ public class HitboxInput : MonoBehaviour
         if (Time.time >= pressTime && holdReady == true)
         {
             holdReady = false;
-            Destroy(Dash);
+            Dash.GetComponent<Animator>().SetTrigger("Contract");
+            Dash.GetComponent<BoxCollider2D>().enabled = false;
+            StartCoroutine(HitAnimation(1f, Dash));
+        }
+
+        // Is key held?
+        if (holdReady && canPressDash)
+        {
+            Dash.GetComponent<Animator>().SetBool("IsHeld", true);
+        }
+        else if (!holdReady && canPressDash)
+        {
+            Dash.GetComponent<Animator>().SetBool("IsHeld", false);
         }
        
-       
-  
-
-    
     }
 
     // Detecting trigger collision in hitbox
