@@ -54,7 +54,7 @@ public class HitboxInput : MonoBehaviour
             holdReady = false;
             Dash.GetComponent<Animator>().SetTrigger("Contract");
             Dash.GetComponent<BoxCollider2D>().enabled = false;
-            Destroy(Dash);
+            StartCoroutine(HitAnimation(1f, Dash));
         }
 
         if (holdReady && canPressDash)
@@ -65,11 +65,6 @@ public class HitboxInput : MonoBehaviour
         {
             Dash.GetComponent<Animator>().SetBool("IsHeld", false);
         }
-       
-       
-  
-
-    
     }
 
     // Detecting trigger collision in hitbox
@@ -111,6 +106,5 @@ public class HitboxInput : MonoBehaviour
     {
         yield return new WaitForSeconds(AnimationTime);
         Destroy(Object);
-
     }
 }
