@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hitbox
+    uniqueID: 1857597869
+    locked: 0
+  - name: Dots
+    uniqueID: 471917
+    locked: 0
