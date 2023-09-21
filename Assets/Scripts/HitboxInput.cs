@@ -57,7 +57,6 @@ public class HitboxInput : MonoBehaviour
             StartCoroutine(HitAnimation(1f, Dash));
         }
 
-        // Is key held?
         if (holdReady && canPressDash)
         {
             Dash.GetComponent<Animator>().SetBool("IsHeld", true);
@@ -66,7 +65,6 @@ public class HitboxInput : MonoBehaviour
         {
             Dash.GetComponent<Animator>().SetBool("IsHeld", false);
         }
-       
     }
 
     // Detecting trigger collision in hitbox
@@ -103,10 +101,10 @@ public class HitboxInput : MonoBehaviour
             Debug.Log("DASH LEFT");
         }
     }
+    
     IEnumerator HitAnimation(float AnimationTime, GameObject Object)
     {
         yield return new WaitForSeconds(AnimationTime);
         Destroy(Object);
-
     }
 }

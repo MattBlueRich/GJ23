@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dot
   - Dash
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: Dots
     uniqueID: 471917
+    locked: 0
+  - name: Dash
+    uniqueID: 2124661491
     locked: 0
